@@ -1,0 +1,15 @@
+1 triangulo -> 3 lados
+c/l = N
+A={x,y,z} Triangulo recto -> 3 * pitagoras
+3l -> h2 = a2+b2
+ciclo for anidado 3 veces 
+probar todas las posibilidades
+
+links:
+https://pt.wikipedia.org/wiki/Terno_pitag%C3%B3rico
+https://euclides.org/triples-pitagoricos/
+
+el problema ans:
+https://hitmontop-ejerciciosresueltos.blogspot.com/2011/06/deiteljava521.html
+
+

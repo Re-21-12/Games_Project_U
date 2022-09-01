@@ -1,0 +1,83 @@
+#include <iostream>
+#include <cstdlib>
+#include <string.h>
+#include <ctime>
+
+using namespace std;
+
+int main(){
+	int opcion,i,j,longitud,espacios,puntos=12;
+	char letra;
+	int aciertos = 0;
+	int intentos = 0;
+	
+	char lenguajes [20][25] = {"PYTHON","C++","OBJETIVE-C","JAVA","JAVASCRIPT","PHP","SWIFT","HTML","MATLAB","TYPESCRIPT"};
+	srand(time(NULL));
+	opcion = rand() % 10; //Se genera palabra aleaotria 
+	longitud = strlen(lenguajes[opcion]); //tamaño de la palabra 
+	char PalabraOculta[longitud];
+	
+	
+	for(i=0; i < longitud; i++){
+		PalabraOculta[i] = '-';
+	}
+	do{
+		aciertos = 0;
+		system("cls");
+		cout<<"JUEGO EL AHORCADO"<<endl<<endl;
+		cout<<"ADIVINA EL LENGUAJE DE PROGRAMACION"<<endl<<endl;
+		cout<<"Intentos disponibles: "<<6-intentos<<endl;
+		cout<<"Puntos: "<<puntos<<endl;
+		
+		
+		cout<<"\n\n\n";
+		for(i=0; i < longitud; i++){
+			cout<<PalabraOculta[i];
+		}
+
+		
+		if (intentos == 6){
+			cout<<"\n\n PERDISTE :("<<endl;
+			cout<<"la palabra correcta era: "<<lenguajes[opcion] ;
+			return 0;	
+		}
+		
+		
+		//PROCESO QUE COMPRUEBA SI SE HA ADIVINADO LA PALABRA
+		espacios=0;
+	
+		for (i = 0; i < longitud; i++){
+			if (PalabraOculta[i] == '-')
+				espacios++;
+		}
+		
+		
+		if (espacios == 0){
+			cout<<"\n\n FELICIDADES GANASTE!!  :)\n\n";
+			return 0;
+		}
+		
+		
+		cout<<"\n\n digita una letra mayuscula: ";
+		cin>>letra;
+		
+		  
+		for (j = 0; j < longitud; j++){           //Comprueba se la letra ingresada existe en la palabra y replaza el guion bajo por la letra.
+			if (letra == lenguajes[opcion][j]){
+				PalabraOculta[j] = letra;
+				aciertos++;
+			}	
+		}
+		
+		if (aciertos == 0){
+			intentos++;	
+			puntos -= 2;
+		}
+		
+		
+			
+	}while(intentos != 7);
+	
+	
+	
+}
